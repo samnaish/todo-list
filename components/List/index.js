@@ -16,11 +16,10 @@ const List = ({ heading, todos = [], actions = {} }) => {
                             <div className="list__item" key={index}>
                                 <ListItem task={todo.task} handleChange={(event) => actions.onChange(event, index)} />
                                 {
-                                    actions.onDone && <button type="button" onClick={() => actions.onDone(index)} >Mark as Done</button>
+                                    actions.onDone && <button className="list__button" type="button" onClick={() => actions.onDone(index)} >Mark as Done</button>
                                 }
                                 {
-                                    actions.onDelete && <button type="button" onClick={() => actions.onDelete(index)}>Delete</button>
-
+                                    actions.onDelete && <button className="list__button" type="button" onClick={() => actions.onDelete(index)}>Delete</button>
                                 }
                             </div>
                         ) 

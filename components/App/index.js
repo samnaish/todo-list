@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import Header from '../Header/index';
 import List from '../List/index';
-import Input from '../Input/index';
 
 import './style';
 
@@ -26,15 +25,28 @@ const App = () => {
         setTodos(newTodos);
     }
 
+    const removeDone = (index) => {
+        // get and spread dones and save in new array
+        const newDone = [...done];
+        // selected done will be removed from the newDone array and only the one selected
+        newDone.splice(index, 1);
+        // set the new state to existing array
+        setDone(newDone);
+    }
+
     const removeTodo = (index) => {
+        // get and spread todos and save in new array
         const newTodos = [...todos];
+        // selected todo will be removed from the newtodos array and only the one selected
         newTodos.splice(index, 1);
+        // set the new state to existing array
         setTodos(newTodos);
       };
 
     const handleKeyDown = (event) => {
         if (event.key === 'Enter') {
             const newTodos = [...todos, { task: event.target.value }];
+            event.target.value = '';
             setTodos(newTodos);
         }
     }
@@ -42,14 +54,16 @@ const App = () => {
     return (
         <div className="app">
             <Header title="To-Do List"/>
-            <input placeholder="type here" onKeyDown={ event => handleKeyDown(event) }/>
+            <input className="app__input" type="text" placeholder="type here" onKeyDown={ event => handleKeyDown(event) }/>
             <div className="app__list-container">
                 <List heading="To Do" todos={todos} actions={{ 
                     onChange: updateTodoAtIndex, 
                     onDelete: removeTodo, 
                     onDone: markAsDone
                 }} />
-                <List heading="Done" todos={done}/>   
+                <List heading="Done" todos={done} actions={{
+                    onDelete: removeDone
+                }}/>   
             </div>
         </div>
     );

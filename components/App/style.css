@@ -1,10 +1,35 @@
+body {
+    margin: 0;
+    background: linear-gradient(#0582CA, #395C6B);
+}
+
 .app {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    min-height: 100vh;
+    max-width: 920px;
+    margin: 10px auto;
 }
 
 .app__list-container {
-    display: inline;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.app__input {
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    outline-color: #FE7F2D;
+    margin: 10px;
+}
+
+.app__input:hover {
+    outline-color: #022B3A;
+}
+
+.app__input:focus {
+    background-color: #E6E6E6;
 }

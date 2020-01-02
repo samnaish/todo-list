@@ -1,3 +1,35 @@
 .list {
     width: 50%;
+    background-color: #E6E6E6;
+    margin: 5px;
+    border-radius: 5px;
+    box-shadow: 4px 5px 5px black;
+}
+
+.list__heading {
+    margin-left: 12px;
+}
+
+.list__item {
+    margin: 0 0 5px 10px;
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    width: 80%;
+}
+
+.list__button {
+    padding: 5px;
+    margin: 0;
+    border-radius: 10px;
+    box-shadow: none;
+    border: none;
+    background-color: #6F8AB7;
+    transition: 0.3s background-color ease;
+}
+
+.list__button:hover {
+    background-color: #ACEDFF;
 }
